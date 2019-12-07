@@ -22,7 +22,7 @@
     </nav>
     <div class="container-fluid">
       <div class="page-title">
-        <h1>写文章</h1>
+        <h1>修改文章</h1>
       </div> 
       <!-- 有错误信息时展示 -->
       <!-- <div class="alert alert-danger">
@@ -54,13 +54,13 @@
             </div> 
             <div class="form-group">
               <label for="created">发布时间</label>
-              <input id="created" class="form-control" name="createAt" type="datetime-local">
+              <input id="created" class="form-control" name="createAt" type="date">
             </div>
             <div class="form-group">
               <label for="status">状态</label>
               <select id="status" class="form-control" name="state">
                 <option value="0">草稿</option>
-                <option value="1">已发布</option>
+                <option value="1">以发布</option>
               </select>
             </div>
             <div class="form-group">
@@ -121,7 +121,8 @@
   </script>
   <!-- 修改文章信息表单模板 -->
   <script type="text/html" id="modifyTpl">
-    <form class="row" id="modifyForm">
+    
+    <form class="row" id="modifyForm" data-id={{_id}}>
       <div class="col-md-9">
         <div class="form-group">
           <label for="title">标题</label>
@@ -152,13 +153,13 @@
         </div> 
         <div class="form-group">
           <label for="created">发布时间</label>
-          <input id="created" class="form-control" name="createAt" type="datetime-local" value="{{createAt.split('T')[0]}}">
+          <input id="created" class="form-control" name="createAt" type="date" value="{{createAt.split('T')[0]}}">
         </div>
         <div class="form-group">
           <label for="status">状态</label>
           <select id="status" class="form-control" name="state">
             <option value="0" {{state == 0 ? "selected" : ""}}>草稿</option>
-            <option value="1" {{state == 1 ? "selected" : ""}}>已发布</option>
+            <option value="1" {{state == 1 ? "selected" : ""}}>以发布</option>
           </select>
         </div>
         <div class="form-group">
