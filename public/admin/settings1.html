@@ -6,7 +6,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <title>Password reset &laquo; Admin</title>
+  <title>Settings &laquo; Admin</title>
   <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="../assets/vendors/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="../assets/vendors/nprogress/nprogress.css">
@@ -26,34 +26,44 @@
     </nav>
     <div class="container-fluid">
       <div class="page-title">
-        <h1>修改密码</h1>
+        <h1>网站设置</h1>
       </div>
       <!-- 有错误信息时展示 -->
       <!-- <div class="alert alert-danger">
         <strong>错误！</strong>发生XXX错误
       </div> -->
-      <form class="form-horizontal" id="modifyForm">
+      <form class="form-horizontal" id="settingsForm">
         <div class="form-group">
-          <label for="old" class="col-sm-3 control-label">旧密码</label>
-          <div class="col-sm-7">
-            <input id="old" class="form-control" type="password" placeholder="旧密码" name="userPass">
+          <label for="site_logo" class="col-sm-2 control-label">网站图标</label>
+          <div class="col-sm-6">
+            <label class="form-image">
+              <input type="file" id="logo">
+              <img src="../assets/img/logo.png" id="preview">
+              <i class="mask fa fa-upload"></i>
+            </label>
+            <input type="hidden" name="logo" id="hiddenLogo">
           </div>
         </div>
         <div class="form-group">
-          <label for="password" class="col-sm-3 control-label">新密码</label>
-          <div class="col-sm-7">
-            <input id="password" class="form-control" type="password" placeholder="新密码" name="newPass">
+          <label class="col-sm-2 control-label">站点名称</label>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" placeholder="站点名称" name="title">
           </div>
         </div>
         <div class="form-group">
-          <label for="confirm" class="col-sm-3 control-label">确认新密码</label>
-          <div class="col-sm-7">
-            <input id="confirm" class="form-control" type="password" placeholder="确认新密码" name="confirmPass">
+          <label class="col-sm-2 control-label">评论</label>
+          <div class="col-sm-6">
+            <div class="checkbox">
+              <label><input type="checkbox" checked name="comment" value="true">开启评论功能</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" checked name="review" value="true">评论必须经人工批准</label>
+            </div>
           </div>
         </div>
         <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-7">
-            <button type="submit" class="btn btn-primary">修改密码</button>
+          <div class="col-sm-offset-2 col-sm-6">
+            <button type="submit" class="btn btn-primary">保存设置</button>
           </div>
         </div>
       </form>
@@ -85,13 +95,13 @@
       <li>
         <a href="users.html"><i class="fa fa-users"></i>用户</a>
       </li>
-      <li>
-        <a href="#menu-settings" class="collapsed" data-toggle="collapse">
+      <li class="active">
+        <a href="#menu-settings" data-toggle="collapse">
           <i class="fa fa-cogs"></i>设置<i class="fa fa-angle-right"></i>
         </a>
-        <ul id="menu-settings" class="collapse">
+        <ul id="menu-settings" class="collapse in">
           <li><a href="slides.html">图片轮播</a></li>
-          <li><a href="settings.html">网站设置</a></li>
+          <li class="active"><a href="settings.html">网站设置</a></li>
         </ul>
       </li>
     </ul>
@@ -99,8 +109,8 @@
 
   <script src="../assets/vendors/jquery/jquery.js"></script>
   <script src="../assets/vendors/bootstrap/js/bootstrap.js"></script>
-  <script src="../assets/js/password-reset.js"></script>
+  <!-- <script src="../assets/js/common.js"></script> -->
+  <script src="../assets/js/settings.js"></script>
   <script>NProgress.done()</script>
-  
 </body>
 </html>
